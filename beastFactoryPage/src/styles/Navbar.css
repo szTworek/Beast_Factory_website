@@ -1,0 +1,10 @@
+.navBar{
+    display: flex;
+    justify-content: space-between;
+}
+
+.navBar a{
+    color: black;
+    text-decoration: none;
+    padding: 10px;
+}
