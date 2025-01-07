@@ -21,7 +21,6 @@ const Navbar = () => {
 
     const handleClickCategories = (prop) => {
         setActiveDropdown(prop);
-        console.log(activeDropdown);
     }
 
     return (
@@ -30,7 +29,7 @@ const Navbar = () => {
 
                 <div className="navBar" >
                     <div className="Logo">
-                        <NavLink to="/">Logo</NavLink>
+                        <NavLink to="/"><img src="../../images/BeastFactoryLogo3.png" alt="Logo" className="logo"/></NavLink>
                     </div>
 
                     <div className="pages">
@@ -42,8 +41,9 @@ const Navbar = () => {
                             <NavLink to="/weights">Sprzęt siłowy</NavLink>
                             {activeDropdown === "weights" && (
                                 <div className="dropdownMenu">
-                                    <NavLink to="/weights/1">ciezary 1</NavLink>
-                                    <NavLink to="/weights/2">ciezary 2</NavLink>
+                                    <NavLink to="/weights/1">Maszyny</NavLink>
+                                    <NavLink to="/weights/2">Ławki</NavLink>
+                                    <NavLink to="/weights/2">Urządzenia do ćwiczeń</NavLink>
                                 </div>
                             )}
                         </div>
@@ -63,7 +63,7 @@ const Navbar = () => {
                         <div
                             className="dropdown"
                             onMouseEnter={() => handleMouseEnter("bundles")}
-
+                            onMouseLeave={handleMouseLeave}
                         >
                             <NavLink to="/bundles">Stojaki</NavLink>
                             {activeDropdown === "bundles" && (
@@ -77,9 +77,11 @@ const Navbar = () => {
 
 
                     <div className="user">
-                        <NavLink to="/Search">Szukaj</NavLink>
-                        <NavLink to="/Account">Konto</NavLink>
-                        <NavLink to="/Basket">Koszyk</NavLink>
+                        <NavLink to="/Search"><img src="../../images/search_10486682.png" alt="search" className="icon"/></NavLink>
+                        <NavLink to="/Account"><img src="../../images/user_10486702.png" alt="profile"
+                                                            className="icon"/></NavLink>
+                        <NavLink to="/Basket"><img src="../../images/cart_10486696.png" alt="basket"
+                                                           className="icon"/></NavLink>
                     </div>
                 </div>
 
