@@ -1,0 +1,27 @@
+.content{
+    position: relative;
+    padding-left: 2rem;
+    padding-top: 3rem;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+}
+.contentSelectionOptions{
+    display: flex;
+    gap: 0.3rem;
+    padding-top: 0.5rem;
+}
+.section{
+    font-size: 1.5rem;
+    font-style: italic;
+}
+.products{
+    padding-top: 1rem;
+    display: flex;
+    flex-wrap: wrap;
+}
+.amount{
+    color: gray;
+    position: absolute;
+    right: 2rem;
+}
