@@ -1,11 +1,8 @@
-import React, {useState} from "react";
+import React, { useState } from "react";
 import Navbar from "../Navbar";
 import "/src/styles/LoginForm.css";
-import Form from "react-bootstrap/Form";
-import {useAuth} from "./AuthProvider.tsx";
-import {useNavigate} from "react-router-dom";
-// import "/src/styles/style.css"
-
+import { useAuth } from "./AuthProvider";
+import { useNavigate } from "react-router-dom";
 
 interface LoginFormData {
     email: string;
@@ -13,9 +10,8 @@ interface LoginFormData {
 }
 
 const Login: React.FC = () => {
-
-    const [formData, setFormData] = useState<LoginFormData>({ email: '', password: '' });
-    const [errorMessage, setErrorMessage] = useState<string>('');
+    const [formData, setFormData] = useState<LoginFormData>({ email: "", password: "" });
+    const [errorMessage, setErrorMessage] = useState<string>("");
     const { setIsLoggedIn } = useAuth();
     const navigate = useNavigate();
 
@@ -27,21 +23,34 @@ const Login: React.FC = () => {
         }));
     };
 
-
-    const handleSubmit = (e: React.FormEvent) => {
+    const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
 
-
         if (!formData.email || !formData.password) {
-            setErrorMessage('Proszę wypełnić wszystkie pola');
+            setErrorMessage("Proszę wypełnić wszystkie pola");
             return;
         }
-        setIsLoggedIn(true); // Ustawiamy, że użytkownik jest zalogowany
-        navigate('/account');
 
-        //wysyłanie danych do API
-        setErrorMessage('');
-        console.log('Zalogowano:', formData);
+        try {
+            const response = await fetch("http://localhost:3007/api/login", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify(formData),
+            });
+
+            if (response.ok) {
+                setIsLoggedIn(true);
+                navigate("/account");
+            } else {
+                const errorData = await response.json();
+                setErrorMessage(errorData.error || "Nieudana próba logowania");
+            }
+        } catch (error) {
+            console.error("Błąd podczas łączenia z backendem:", error);
+            setErrorMessage("Błąd serwera. Spróbuj ponownie później.");
+        }
     };
 
     return (
@@ -79,8 +88,14 @@ const Login: React.FC = () => {
                         Zaloguj się
                     </button>
                 </form>
+                <p className={"registerText"}>Nie masz konta?</p>
+                <button className="loginButton" onClick={() => navigate("/register")}>
+                    Zarejestruj się
+                </button>
             </div>
         </>
     );
 };
+
 export default Login;
+
