@@ -78,6 +78,7 @@ const Navbar = () => {
 
                     <div className="user">
                         <NavLink to="/Search"><img src="../../images/search_10486682.png" alt="search" className="icon"/></NavLink>
+
                         <NavLink to="/Account"><img src="../../images/user_10486702.png" alt="profile"
                                                             className="icon"/></NavLink>
                         <NavLink to="/Basket"><img src="../../images/cart_10486696.png" alt="basket"
