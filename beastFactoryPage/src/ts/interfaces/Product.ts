@@ -8,5 +8,5 @@ export default interface Product {
   discountPercentage: number;
   stock: number;
   brand: String;
-  image: String;
+  image: Blob;
 }
