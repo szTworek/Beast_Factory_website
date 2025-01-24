@@ -1,9 +1,10 @@
 #root {
+    max-width: 1500px;
     margin: 0 auto;
     text-align: center;
     font-family: "Oxanium", serif;
     font-optical-sizing: auto;
-    font-weight:500;
+    font-weight: 500;
     font-style: normal;
 
   }
@@ -12,4 +13,5 @@ body{
     /*font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;*/
     /* background-color: rgb(149, 137, 216); */
     margin: 0;
+    
 }

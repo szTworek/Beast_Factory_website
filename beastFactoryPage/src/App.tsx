@@ -12,38 +12,39 @@ import Boundles from "./components/Boundles";
 import Search from "./components/Search.tsx";
 import Account from "./components/account/Account.tsx";
 import Basket from "./components/Basket.tsx";
-import Login from "./components/account/Login.tsx"
+import Login from "./components/account/Login.tsx";
 import ProtectedRoute from "./components/account/ProtectedRoute.tsx";
 import Register from "./components/account/Register.tsx";
-import {AuthProvider} from "./components/account/AuthProvider.tsx";
+import { AuthProvider } from "./components/account/AuthProvider.tsx";
+import Item from "./components/Item.tsx";
 
 function App() {
   return (
     <>
       <BrowserRouter>
-      <AuthProvider>
-        <Routes>
-          <Route path="/" element={<Home />} />
+        <AuthProvider>
+          <Routes>
+            <Route path="/" element={<Home />} />
 
-          <Route path="/machines" element={<Machines />} />
-          <Route path="/weights" element={<Weights />} />
-          <Route path="/bundles" element={<Boundles />} />
-          <Route path="/search" element={<Search />} />
-          <Route path="/basket" element={<Basket />} />
-          <Route path="/register" element={<Register />}/>
+            <Route path="/item/:id" element={<Item />} />
+            <Route path="/machines" element={<Machines />} />
+            <Route path="/weights" element={<Weights />} />
+            <Route path="/bundles" element={<Boundles />} />
+            <Route path="/search" element={<Search />} />
+            <Route path="/basket" element={<Basket />} />
+            <Route path="/register" element={<Register />} />
             <Route path="/login" element={<Login />} />
             <Route
-                path="/account"
-                element={
-                    <ProtectedRoute>
-                        <Account />
-                    </ProtectedRoute>
-                }
+              path="/account"
+              element={
+                <ProtectedRoute>
+                  <Account />
+                </ProtectedRoute>
+              }
             />
-        </Routes>
-      </AuthProvider>
+          </Routes>
+        </AuthProvider>
       </BrowserRouter>
-
     </>
   );
 }
