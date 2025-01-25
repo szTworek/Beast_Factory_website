@@ -1,0 +1,45 @@
+.content{
+    position: relative;
+    padding-inline: 2rem;
+    padding-top: 3rem;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+}
+.contentSelectionOptions{
+    display: flex;
+    width: 350px;
+    gap: 0.3rem;
+    padding-top: 0.5rem;
+}
+.section{
+    font-size: 1.5rem;
+    font-style: italic;
+}
+.products {
+    padding-top: 1.5rem;
+    width: 100%;
+    display: grid; 
+    gap: 0.5rem; 
+    grid-template-columns: repeat(3, 1fr); 
+    justify-items: center;
+}
+
+.amount{
+    color: gray;
+    align-self: flex-end;
+    padding-top: 1rem;
+    padding-right: 2rem;
+}
+
+@media (max-width: 768px) {
+    .products {
+        grid-template-columns: repeat(2, 1fr); 
+    }
+}
+
+@media (max-width: 600px) {
+    .products {
+        grid-template-columns: 1fr; 
+    }
+}
