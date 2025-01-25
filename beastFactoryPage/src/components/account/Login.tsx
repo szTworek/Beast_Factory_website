@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import Navbar from "../Navbar";
+import Navbar from "../Navbar.tsx";
 import "/src/styles/LoginForm.css";
 import { useAuth } from "./AuthProvider";
 import { useNavigate } from "react-router-dom";

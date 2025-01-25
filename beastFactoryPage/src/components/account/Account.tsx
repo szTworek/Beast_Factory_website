@@ -1,7 +1,7 @@
 import React from 'react';
 import { useAuth } from './AuthProvider';
 import { Navigate } from 'react-router-dom';
-import Navbar from "../Navbar";
+import Navbar from "../Navbar.tsx";
 
 const Account: React.FC = () => {
     const { isLoggedIn } = useAuth();

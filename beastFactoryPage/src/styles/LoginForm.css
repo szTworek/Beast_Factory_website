@@ -47,7 +47,7 @@
 
 
 .loginButton {
-    margin-top: 2rem;
+    margin-top: 0.5rem;
     width: 100%;
     padding: 12px;
     border: none;
@@ -80,8 +80,8 @@ p{
     width: 100%;
 }
 
-#bootstrap-overrides .registerText p{
-    margin-top: 5rem;
+p.registerText{
+    margin-top: 1.5rem;
     margin-bottom: 0;
     text-align: left;
 }

@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import Product from "../ts/interfaces/Product";
 import "../styles/Item.css";
 import { useLocation, useNavigate, useParams } from "react-router-dom";
-import Navbar from "./Navbar";
+import Navbar from "./Navbar.tsx";
 
 interface LocationState {
   state: {
@@ -38,21 +38,6 @@ const Item = () => {
   function decrement() {
     setAmount((oldAmount) => Math.max(oldAmount - 1, 0));
   }
-
-  // const images = [
-  //   {
-  //     original: "https://picsum.photos/id/1018/1000/600/",
-  //     thumbnail: "https://picsum.photos/id/1018/250/150/",
-  //   },
-  //   {
-  //     original: "https://picsum.photos/id/1015/1000/600/",
-  //     thumbnail: "https://picsum.photos/id/1015/250/150/",
-  //   },
-  //   {
-  //     original: "https://picsum.photos/id/1019/1000/600/",
-  //     thumbnail: "https://picsum.photos/id/1019/250/150/",
-  //   },
-  // ];
 
   if (!product) {
     return (

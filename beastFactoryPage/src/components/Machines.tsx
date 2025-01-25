@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import Navbar from "./Navbar";
+import Navbar from "./Navbar.tsx";
 import "../styles/Machines.css";
 import Form from "react-bootstrap/Form";
 import Product from "../ts/interfaces/Product";
@@ -60,7 +60,7 @@ const Machines = () => {
     queryKey: ["products"],
     queryFn: async () => {
       // setrawData(randomGymProducts);
-      fetch("http://localhost:3000/api/items/category/Dumbells")
+      fetch("http://localhost:3000/api/items/category/Machines")
         .then((res) => {
           return res.json();
         })
